@@ -7,13 +7,19 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest"
   },
   "devDependencies": {
+    "@nuxt/test-utils": "^3.10.0",
     "@nuxtjs/tailwindcss": "^6.10.4",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "@vue/test-utils": "^2.4.3",
+    "jsdom": "^23.2.0",
     "nuxt": "^3.9.0",
     "shadcn-nuxt": "^0.8.6",
     "typescript": "^5.3.3",
+    "vitest": "^1.2.1",
     "vue": "^3.4.6",
     "vue-router": "^4.2.5"
   },

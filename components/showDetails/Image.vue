@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ArrowLeft } from "lucide-vue-next";
-const props = defineProps<{ imageUrl: string; name: string }>();
-
+const props = defineProps<{ imageUrl?: string; name: string }>();
 const { imageUrl, name } = props;
 </script>
 

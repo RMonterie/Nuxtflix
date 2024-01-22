@@ -6,22 +6,28 @@ const $store = useShowStore();
 
 const episodesGroupedByGenre = ref<{ [key: string | number]: Episode[] }>();
 
-onBeforeMount(() => {
+const loadShows = () => {
   $store.retrieveShows();
   episodesGroupedByGenre.value = $store.getEpisodesGroupedByGenre();
+};
+
+onBeforeMount(() => {
+  loadShows();
 });
 
-onMounted(() => {
-  $store.retrieveShows();
-  const groupedEpisodes = $store.getEpisodesGroupedByGenre();
-  episodesGroupedByGenre.value = groupedEpisodes;
+onBeforeRouteUpdate(() => {
+  loadShows();
 });
 </script>
 
 <template>
   <div class="container">
-    <div v-for="(episodes, genre) in episodesGroupedByGenre">
+    <div
+      v-if="episodesGroupedByGenre"
+      v-for="(episodes, genre) in episodesGroupedByGenre"
+    >
       <HomeShowCarousel :genre="genre" :episodes="episodes" />
     </div>
+    <SharedLoading v-else />
   </div>
 </template>

@@ -19,7 +19,7 @@ export interface Show {
     average: number;
   };
   image: Image | null;
-  summary: string;
+  summary?: string;
 }
 
 export interface ShowFromSearch {
